@@ -12,7 +12,7 @@ var crypto = require('crypto');
  *  - `expires` expiration date
  *  - `secret` s3 secret
  *  - `bucket` bucket name
- *  - `key` restrict key to prefix [""]
+ *  - `name` restrict object name to prefix [""]
  *  - `type` restrict content-type prefix [""]
  *  - `length` max size restriction
  *
@@ -28,7 +28,7 @@ module.exports = function(opts){
   
   opts.conditions = [];
 
-  opts.conditions.push(['starts-with', '$key', opts.key || '']);
+  opts.conditions.push(['starts-with', '$key', opts.name || '']);
   opts.conditions.push(['starts-with', '$Content-Type', opts.type || '']);
   opts.conditions.push(['starts-with', '$Content-Length', '']);
 

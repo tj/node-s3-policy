@@ -11,7 +11,8 @@ Create an s3 policy and signature via `opts`:
  - `expires` expiration date
  - `secret` s3 secret
  - `bucket` bucket name
- - `key` restrict key to prefix [""]
+ - `key` access key
+ - `name` restrict key to prefix [""]
  - `type` restrict content-type prefix [""]
  - `length` max size restriction
 
