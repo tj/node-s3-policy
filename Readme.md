@@ -1,7 +1,8 @@
 
 # s3-policy
 
-  S3 policy generation for client-side uploads
+  [S3 policy][] generation for client-side uploads. By default, `Content-Type` and
+  `Content-Length` form fields are __required__, but can contain any value.
 
 ## Options
 
@@ -37,7 +38,7 @@ console.log(p.policy);
 console.log(p.signature);
 ```
 
-## License 
+## License
 
 (The MIT License)
 
@@ -61,3 +62,5 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[S3 policy]: http://docs.aws.amazon.com/AmazonS3/latest/dev/HTTPPOSTForms.html#HTTPPOSTConstructPolicy
