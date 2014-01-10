@@ -60,12 +60,12 @@ function policy(opts) {
   conds.push({ bucket: opts.bucket });
   conds.push({ acl: opts.acl });
 
-  var policy = {
+  var data = {
     expiration: opts.expires.toISOString(),
     conditions: conds
   };
 
-  var json = JSON.stringify(policy);
+  var json = JSON.stringify(data);
   var base = new Buffer(json).toString('base64');
   return base;
 }
