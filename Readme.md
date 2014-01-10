@@ -15,6 +15,7 @@ Create an s3 policy and signature via `opts`:
  - `name` restrict key to prefix [""]
  - `type` restrict content-type prefix [""]
  - `length` max size restriction
+ *  - `conditions` an optional Array of custom "conditions" to include in the policy
 
 An object with `.signature` and `.policy` is returned.
 
