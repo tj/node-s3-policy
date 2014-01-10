@@ -15,19 +15,19 @@ var crypto = require('crypto');
  *  - `name` restrict object name to prefix [""]
  *  - `type` restrict content-type prefix [""]
  *  - `length` max size restriction
+ *  - `conditions` an optional Array of custom "conditions" to include in the policy
  *
  * An object with `.signature` and `.policy` is returned.
  *
  * @param {Object} opts
- * @return {Object} 
+ * @return {Object}
  * @api public
  */
 
 module.exports = function(opts){
   var ret = {};
-  
-  opts.conditions = [];
 
+  if (!Array.isArray(opts.conditions)) opts.conditions = [];
   opts.conditions.push(['starts-with', '$key', opts.name || '']);
   opts.conditions.push(['starts-with', '$Content-Type', opts.type || '']);
   opts.conditions.push(['starts-with', '$Content-Length', '']);
@@ -38,7 +38,7 @@ module.exports = function(opts){
 
   ret.policy = policy(opts);
   ret.signature = signature(ret.policy, opts.secret);
-  
+
   return ret;
 };
 
@@ -59,13 +59,13 @@ function policy(opts) {
   var conds = opts.conditions || [];
   conds.push({ bucket: opts.bucket });
   conds.push({ acl: opts.acl });
-  
-  var policy = {
+
+  var data = {
     expiration: opts.expires.toISOString(),
     conditions: conds
   };
 
-  var json = JSON.stringify(policy);
+  var json = JSON.stringify(data);
   var base = new Buffer(json).toString('base64');
   return base;
 }
