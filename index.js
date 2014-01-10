@@ -19,13 +19,13 @@ var crypto = require('crypto');
  * An object with `.signature` and `.policy` is returned.
  *
  * @param {Object} opts
- * @return {Object} 
+ * @return {Object}
  * @api public
  */
 
 module.exports = function(opts){
   var ret = {};
-  
+
   opts.conditions = [];
 
   opts.conditions.push(['starts-with', '$key', opts.name || '']);
@@ -38,7 +38,7 @@ module.exports = function(opts){
 
   ret.policy = policy(opts);
   ret.signature = signature(ret.policy, opts.secret);
-  
+
   return ret;
 };
 
@@ -59,7 +59,7 @@ function policy(opts) {
   var conds = opts.conditions || [];
   conds.push({ bucket: opts.bucket });
   conds.push({ acl: opts.acl });
-  
+
   var policy = {
     expiration: opts.expires.toISOString(),
     conditions: conds
