@@ -2,13 +2,14 @@
   "name": "s3-policy",
   "version": "0.1.0",
   "description": "S3 policy generation for client-side uploads",
-  "keywords": [],
+  "keywords": ["s3", "policy"],
   "author": "TJ Holowaychuk <tj@vision-media.ca>",
-  "repository": { "type": "git", "url": "git://github.com/visionmedia/s3-policy.git" },
+  "repository": "visionmedia/node-s3-policy",
   "dependencies": {},
   "devDependencies": {
     "mocha": "*",
     "should": "*"
   },
-  "main": "index"
+  "main": "index",
+  "files": ["index.js"]
 }
