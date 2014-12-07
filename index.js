@@ -30,7 +30,6 @@ module.exports = function(opts){
   if (!Array.isArray(opts.conditions)) opts.conditions = [];
   opts.conditions.push(['starts-with', '$key', opts.name || '']);
   opts.conditions.push(['starts-with', '$Content-Type', opts.type || '']);
-  opts.conditions.push(['starts-with', '$Content-Length', '']);
 
   if (opts.length) {
     opts.conditions.push(['content-length-range', 1, opts.length]);
