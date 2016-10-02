@@ -8,7 +8,7 @@
 
 Create an s3 policy and signature via `opts`:
 
- - `acl` acl such as "public-read"
+ - `acl` acl such as "public-read" ([more info](http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl))
  - `expires` expiration date
  - `secret` s3 secret
  - `bucket` bucket name
