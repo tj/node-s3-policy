@@ -1,8 +1,7 @@
 
 # s3-policy
 
-  [S3 policy][] generation for client-side uploads. By default, `Content-Type` and
-  `Content-Length` form fields are __required__, but can contain any value.
+  [S3 policy][] generation for client-side uploads. Based on http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-HTTPPOSTConstructPolicy.html
 
 ## Options
 
